@@ -1,6 +1,6 @@
 <template>
 
-    <div style="height: 80vh">
+    <div style="z-index: 100;height: 80vh">
     
         <table class="striped responsive-table">
             <thead>
