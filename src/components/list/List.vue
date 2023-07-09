@@ -75,13 +75,17 @@ export default {
 
         onClickItem(id) {
 
-            this.items.forEach(element => {
+            if (id) {
+                
+                this.items.forEach(element => {
 
-                element.selected = element.id == id
+                    element.selected = element.id == id
 
-            });
+                });
 
-            this.$emit('on-click-item', this.items.filter(record => record.id == id)[0]);
+                this.$emit('on-click-item', this.items.filter(record => record.id == id)[0]);
+
+            }
 
         },
 
@@ -142,9 +146,9 @@ thead th {
 
       table tbody {
         display: block;
-        max-height: 70vh;
-        overflow-y: scroll;
-    }
+        max-height: 80vh;
+         overflow-y: scroll;
+     }
 
     table thead, table tbody tr {
         display: table;

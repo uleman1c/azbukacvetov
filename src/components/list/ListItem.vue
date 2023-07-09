@@ -4,9 +4,9 @@
         v-on:click="onClickItem(item.id)"
         >
 
+        <td v-if="item.type == 'header'" v-bind:style="item.style" v-bind:class="item.class">{{ item.name }}</td>
 
-
-        <td v-for="field in fields" v-bind:style="field.item.style" v-bind:class="field.item.class" 
+        <td v-else v-for="field in fields" v-bind:style="field.item.style" v-bind:class="field.item.class" 
             v-on:click="onClickItemField(item.id, field.item.name)"
             v-on:dblclick="onDblClickItemField(item.id, field.item.name)"
             >{{ strEval(item, field.item.eval) }}
