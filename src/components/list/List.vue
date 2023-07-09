@@ -22,7 +22,7 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody style="position: sticky;">
 
                 <ListItem v-for="(item, index) in items" 
                     v-bind:fields="fields"
