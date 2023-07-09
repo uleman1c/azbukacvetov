@@ -5,6 +5,9 @@
       style="z-index: 0; position: absolute; left: 0; top: 0; background-repeat: no-repeat;width: 100%;height: 100%;background-size: cover;">
     </div>
 
+    <h1 style="position: relative; text-align: center; margin: 0; background-color: #b1a0c7;">Прайс-лист</h1>
+    <h4 style="position: relative; text-align: center; margin: 0; background-color: #ccc0da; font-style: italic;">Цены указаны на 04.07.23</h4>
+
     <List 
                     v-bind:fields="fields" 
                     v-bind:items="items" 
@@ -63,7 +66,7 @@ export default {
 
 
       items: [
-        { name: 'Комнатные растения', type: 'header', style: 'text-align: center;' },
+        { name: 'Комнатные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
         { line_number: 0, name: 'Азалия комнатная', price: 450, diam: 13, height: 25 },
         { line_number: 1, name: 'Антуриум', price: 950, diam: 14, height: 35 },
         { line_number: 2, name: 'Антуриум', price: 1450, diam: 17, height: 65 },
@@ -96,7 +99,7 @@ export default {
         { line_number: 29, name: 'Хойя', price: 1200, diam: 19, height: 35 },
         { line_number: 30, name: 'Цыссус', price: 2600, diam: 17, height: 35 },
 
-        { name: 'Прочее', type: 'header', style: 'text-align: center;' },
+        { name: 'Прочее', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
         { line_number: 31, name: 'Грунт 10 л. цветочный', price: 150 }, 
         { line_number: 32, name: 'Грунт 150 л.', price: 750 },
         { line_number: 33, name: 'Грунт 25 л. уневерсальный', price: 320 },
@@ -104,10 +107,10 @@ export default {
         { line_number: 35, name: 'Грунт 50 л. уневерсальный', price: 520 },
         { line_number: 36, name: 'Грунт 50 л. Хвойные-голуб-горт', price: 470 },        
  
-        { name: 'Рассада', type: 'header', style: 'text-align: center;' },
+        { name: 'Рассада', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
         { line_number: 37, name: 'Каллизия кошпо', price: 650, diam: 14 },
 
-        { name: 'Уличные растения', type: 'header', style: 'text-align: center;' },
+        { name: 'Уличные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
         { line_number: 38, name: 'Астра', price: 350, diam: 12, height: 30 },
         { line_number: 39, name: 'Бересклет Арлекин', price: 680, diam: 13, height: 45 },
         { line_number: 40, name: 'Бересклет Европейский Рэд Каскад', price: 6000, diam: 30, height: 15 },
