@@ -1,3 +1,6 @@
+import pic121_1 from '@/assets/pics/a61fbf4e-f53e-4d74-9160-8da62140dc8a.jpg'
+
+
 const items = [
     { name: 'Комнатные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
     { id: 0, name: 'Азалия комнатная', price: 450, diameter: 13, height: 25 },
@@ -64,7 +67,7 @@ const items = [
     { id: 55, name: 'Гортензия метельчатая', price: 4750, diameter: 29, height: 80 },
     { id: 56, name: 'Гортензия Сбежавшая невеста', price: 4000, diameter: 20, height: 35 },
     { id: 57, name: 'Гортензия Черешковая', price: 750, diameter: 9, height: 25 },
-    { id: 121, name: 'Гортензия Мэджикал Революшн', price: 7500, diameter: 40, height: 70 },
+    { id: 121, name: 'Гортензия Мэджикал Революшн', price: 7500, diameter: 40, height: 70, pics: [ pic121_1 ] },
     { id: 58, name: 'Граб пендула', price: 15000, diameter: 20, height: 250 },
     { id: 59, name: 'Ель Нигра', price: 3500, diameter: 23, height: 45 },
     { id: 60, name: 'Ель Нидеформис', price: 3800, diameter: 23, height: 45 },
