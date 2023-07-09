@@ -56,7 +56,7 @@ export default {
                     },
                     { 
                         header: { text: 'Диаметр горшка (см)', class: 'center-align' }, 
-                        item: { eval: 'item.diam', class: 'center-align', style: 'text-align: center;' }
+                        item: { eval: 'item.diameter', class: 'center-align', style: 'text-align: center;' }
                     },
                     { 
                         header: { text: 'Высота (см)', class: 'center-align' }, 
