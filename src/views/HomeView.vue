@@ -5,6 +5,12 @@
       style="z-index: 0; position: absolute; left: 0; top: 0; background-repeat: no-repeat;width: 100%;height: 100%;background-size: cover;">
     </div>
 
+    <h2 style="position: relative; text-align: center; margin: 0;">Контакты +79052700065, +79817338935</h2>
+    <h2 style="position: relative; text-align: center; margin: 0;">Электронная почта anastasiy.azbuka@icloud.com</h2>
+    <h2 style="position: relative; text-align: center; margin: 0;">Адрес Пулковское шоссе, 120 Санкт-Петербург</h2>
+    <h2 style="position: relative; text-align: center; margin: 0;">WhatsApp <a href="https://wa.me/+79052700065">+79052700065</a></h2>
+    
+
     <h1 style="position: relative; text-align: center; margin: 0; background-color: #b1a0c7;">Прайс-лист</h1>
     <h4 style="position: relative; text-align: center; margin: 0; background-color: #ccc0da; font-style: italic;">Цены указаны на 04.07.23</h4>
 
