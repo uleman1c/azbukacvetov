@@ -1,5 +1,9 @@
 import pic121_1 from '@/assets/pics/a61fbf4e-f53e-4d74-9160-8da62140dc8a.jpg'
+import pic121_2 from '@/assets/pics/cb8cd5e9-457b-436b-928a-ab67953afe91.jpg'
+import pic121_3 from '@/assets/pics/d4ab6b0c-c368-4ad2-95e9-0430ad413d40.jpg'
+import pic121_4 from '@/assets/pics/d10c658c-3f34-46ec-84ea-f3418a594f49.jpg'
 
+import pic109_1 from '@/assets/pics/68936ac8-7fe9-4740-b8fe-b2b323abf224.jpg'
 
 const items = [
     { name: 'Комнатные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
@@ -67,7 +71,7 @@ const items = [
     { id: 55, name: 'Гортензия метельчатая', price: 4750, diameter: 29, height: 80 },
     { id: 56, name: 'Гортензия Сбежавшая невеста', price: 4000, diameter: 20, height: 35 },
     { id: 57, name: 'Гортензия Черешковая', price: 750, diameter: 9, height: 25 },
-    { id: 121, name: 'Гортензия Мэджикал Революшн', price: 7500, diameter: 40, height: 70, pics: [ pic121_1 ] },
+    { id: 121, name: 'Гортензия Мэджикал Революшн', price: 7500, diameter: 40, height: 70, pics: [ pic121_1, pic121_2, pic121_3, pic121_4 ] },
     { id: 58, name: 'Граб пендула', price: 15000, diameter: 20, height: 250 },
     { id: 59, name: 'Ель Нигра', price: 3500, diameter: 23, height: 45 },
     { id: 60, name: 'Ель Нидеформис', price: 3800, diameter: 23, height: 45 },
@@ -119,8 +123,8 @@ const items = [
     { id: 106, name: 'Туя Смарагд ком', price: 3100, diameter: 160 },
     { id: 107, name: 'Туя Смарагд ком', price: 4800, diameter: 180 },
     { id: 108, name: 'Туя Смарагд ком', price: 6700, diameter: 190 },
-    { id: 109, name: 'Туя спираль', price: 53000, diameter: 48, height: 190 },
-    { id: 110, name: 'Туя спираль', price: 41000, diameter: 48, height: 210 },
+    { id: 109, name: 'Туя спираль', price: 53000, diameter: 48, height: 190, pics: [ pic109_1 ] },
+    { id: 110, name: 'Туя спираль', price: 41000, diameter: 48, height: 210, pics: [ pic109_1 ] },
     { id: 111, name: 'Туя Чемпион', price: 4500, diameter: 30, height: 140 },
     { id: 112, name: 'Фестука ( овсянница)', price: 350, diameter: 10, height: 25 },
     { id: 113, name: 'Фестука ( овсянница)', price: 900, diameter: 17, height: 40 },
