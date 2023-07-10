@@ -36,6 +36,10 @@ export default{
         this.item.diameter = curItem.diameter;
         this.item.height = curItem.height;
         this.item.pics = curItem.pics;
+
+        document.title = this.item.name
+
+
     },
     components: { PicView }
 }
