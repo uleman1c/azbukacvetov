@@ -5,6 +5,17 @@ import pic121_4 from '@/assets/pics/d10c658c-3f34-46ec-84ea-f3418a594f49.jpg'
 
 import pic109_1 from '@/assets/pics/68936ac8-7fe9-4740-b8fe-b2b323abf224.jpg'
 
+import pic84_1 from '@/assets/pics/eacb5001-b624-4b32-a136-87e26bc29833.jpg'
+import pic84_2 from '@/assets/pics/4dc2635c-2cda-434c-8916-e9c5f938d864.jpg'
+
+import pic42_1 from '@/assets/pics/368b4c11-4974-4dad-b04a-6a3a21901d2e.jpg'
+import pic42_2 from '@/assets/pics/525734eb-2024-4dad-b0d8-d76d380876a3.jpg'
+
+import pic104_1 from '@/assets/pics/3b7ec2f8-1046-45c6-89bd-43b3aff7f8b5.jpg'
+
+import pic48_1 from '@/assets/pics/6eaafb91-f250-4a42-a6fc-8dbce1cae850.jpg'
+import pic48_2 from '@/assets/pics/aaf53aba-c1ae-4167-97c4-5243973c403d.jpg'
+
 const items = [
     { name: 'Комнатные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
     { id: 0, name: 'Азалия комнатная', price: 450, diameter: 13, height: 25 },
@@ -55,13 +66,13 @@ const items = [
     { id: 39, name: 'Бересклет Арлекин', price: 680, diameter: 13, height: 45 },
     { id: 40, name: 'Бересклет Европейский Рэд Каскад', price: 6000, diameter: 30, height: 15 },
     { id: 41, name: 'Бересклет Крылатый', price: 7900, diameter: 30, height: 80 },
-    { id: 42, name: 'Вероника', price: 500, diameter: 13, height: 40 },
-    { id: 43, name: 'Вероника', price: 650, diameter: 14, height: 35 },
+    { id: 42, name: 'Вероника', price: 500, diameter: 13, height: 40, pics: [ pic42_1, pic42_2 ] },
+    { id: 43, name: 'Вероника', price: 650, diameter: 14, height: 35, pics: [ pic42_1, pic42_2 ] },
     { id: 44, name: 'Гвоздика', price: 450, diameter: 13, height: 25 },
     { id: 45, name: 'Гвоздика Барбадос', price: 510, diameter: 13, height: 25 },
     { id: 46, name: 'Гвоздика Оскар', price: 310, diameter: 10, height: 25 },
     { id: 47, name: 'Гвоздика Оскар', price: 480, diameter: 12, height: 25 },
-    { id: 48, name: 'Гвоздика Пинк Киссес', price: 490, diameter: 12, height: 25 },
+    { id: 48, name: 'Гвоздика Пинк Киссес', price: 490, diameter: 12, height: 25, pics: [ pic48_1, pic48_2 ] },
     { id: 49, name: 'Гипсофила', price: 370, diameter: 12, height: 25 },
     { id: 50, name: 'Гипсофила микс', price: 570, diameter: 12, height: 25 },
     { id: 51, name: 'Гортензия Сбежавшая невеста решетка', price: 5000, diameter: 20, height: 35 },
@@ -98,7 +109,7 @@ const items = [
     { id: 81, name: 'Остеоспермум', price: 390, diameter: 10, height: 25 },
     { id: 82, name: 'Пеларгония', price: 350, diameter: 10, height: 35 },
     { id: 83, name: 'Пихта Корейская', price: 2500, diameter: 23, height: 40 },
-    { id: 84, name: 'Роза "Леонардо да Винчи"', price: 2100, diameter: 19, height: 45 },
+    { id: 84, name: 'Роза "Леонардо да Винчи"', price: 2100, diameter: 19, height: 45, pics: [ pic84_1, pic84_2 ] },
     { id: 85, name: 'Роза горшок', price: 2250, diameter: 23, height: 145 },
     { id: 86, name: 'Роза Кордана', price: 440, diameter: 10, height: 20 },
     { id: 87, name: 'Роза Кордана', price: 580, diameter: 12 },
@@ -118,7 +129,7 @@ const items = [
     { id: 101, name: 'Туя Брабант', price: 1000, diameter: 21, height: 130 },
     { id: 102, name: 'Туя Даника', price: 1990, diameter: 23, height: 40 },
     { id: 103, name: 'Туя Даника', price: 13000, diameter: 38, height: 'шар45' },
-    { id: 104, name: 'Туя Помпон', price: 23000, diameter: 38, height: 160 },
+    { id: 104, name: 'Туя Помпон', price: 23000, diameter: 38, height: 160, pics: [ pic104_1 ] },
     { id: 105, name: 'Туя Смарагд', price: 1750, diameter: 23 },
     { id: 106, name: 'Туя Смарагд ком', price: 3100, diameter: 160 },
     { id: 107, name: 'Туя Смарагд ком', price: 4800, diameter: 180 },
