@@ -16,6 +16,19 @@ import pic104_1 from '@/assets/pics/3b7ec2f8-1046-45c6-89bd-43b3aff7f8b5.jpg'
 import pic48_1 from '@/assets/pics/6eaafb91-f250-4a42-a6fc-8dbce1cae850.jpg'
 import pic48_2 from '@/assets/pics/aaf53aba-c1ae-4167-97c4-5243973c403d.jpg'
 
+import pic51_1 from '@/assets/pics/968faf48-e086-4bca-8662-291e480c5071.jpg'
+import pic51_2 from '@/assets/pics/3ca72560-f1f9-42cf-aa45-232c559e3035.jpg'
+
+import pic27_1 from '@/assets/pics/68e43820-7b84-4e58-ba11-0c5f3cd66aeb.jpg'
+
+import pic38_1 from '@/assets/pics/1683949a-a61f-486e-b010-2a2767acdb01.jpg'
+
+import pic118_1 from '@/assets/pics/cee4f585-c51e-4df6-9279-c526354bf0d1.jpg'
+
+import pic92_1 from '@/assets/pics/c70f8084-3750-40a2-a92a-13ab920ad588.jpg'
+import pic91_1 from '@/assets/pics/ba965a06-2f7f-4aa3-b67b-42c5b43ede92.jpg'
+import pic91_2 from '@/assets/pics/7b018205-d68d-4626-a809-760ffb4267c4.jpg'
+
 const items = [
     { name: 'Комнатные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
     { id: 0, name: 'Азалия комнатная', price: 450, diameter: 13, height: 25 },
@@ -45,8 +58,8 @@ const items = [
     { id: 24, name: 'Фикус Бенжамина ( коса)', price: 7500, diameter: 24, height: 110 },
     { id: 25, name: 'Фикус Бенжамина ( плетенный )', price: 13000, diameter: 31, height: 120 },
     { id: 26, name: 'Фикус Бенжамина', price: 7000, diameter: 27, height: 140 },
-    { id: 27, name: 'Хедера', price: 490, diameter: 13, height: 35 },
-    { id: 28, name: 'Хедера', price: 2800, diameter: 24, height: 110 },
+    { id: 27, name: 'Хедера', price: 490, diameter: 13, height: 35, pics: [ pic27_1 ] },
+    { id: 28, name: 'Хедера', price: 2800, diameter: 24, height: 110, pics: [ pic27_1 ] },
     { id: 29, name: 'Хойя', price: 1200, diameter: 19, height: 35 },
     { id: 30, name: 'Цыссус', price: 2600, diameter: 17, height: 35 },
 
@@ -62,7 +75,7 @@ const items = [
     { id: 37, name: 'Каллизия кошпо', price: 650, diameter: 14 },
 
     { name: 'Уличные растения', type: 'header', style: 'text-align: center; background-color: #ccc0da; font-weight: bold;' },
-    { id: 38, name: 'Астра', price: 350, diameter: 12, height: 30 },
+    { id: 38, name: 'Астра', price: 350, diameter: 12, height: 30, pics: [ pic38_1 ] },
     { id: 39, name: 'Бересклет Арлекин', price: 680, diameter: 13, height: 45 },
     { id: 40, name: 'Бересклет Европейский Рэд Каскад', price: 6000, diameter: 30, height: 15 },
     { id: 41, name: 'Бересклет Крылатый', price: 7900, diameter: 30, height: 80 },
@@ -75,7 +88,7 @@ const items = [
     { id: 48, name: 'Гвоздика Пинк Киссес', price: 490, diameter: 12, height: 25, pics: [ pic48_1, pic48_2 ] },
     { id: 49, name: 'Гипсофила', price: 370, diameter: 12, height: 25 },
     { id: 50, name: 'Гипсофила микс', price: 570, diameter: 12, height: 25 },
-    { id: 51, name: 'Гортензия Сбежавшая невеста решетка', price: 5000, diameter: 20, height: 35 },
+    { id: 51, name: 'Гортензия Сбежавшая невеста решетка', price: 5000, diameter: 20, height: 35, pics: [ pic51_1, pic51_2 ] },
     { id: 52, name: 'Гортензия Макрофила', price: 2500, diameter: 23, height: 45 },
     { id: 53, name: 'Гортензия Макрофила', price: 5500, diameter: 32, height: 70 },
     { id: 54, name: 'Гортензия Макрофила', price: 12000, diameter: 40, height: 70 },
@@ -116,8 +129,8 @@ const items = [
     { id: 88, name: 'Роза патио ', price:620, diameter: 13, height: 50 },
     { id: 89, name: 'Роза штамбовая', price: 5500, diameter: 24, height: 110 },
     { id: 90, name: 'Розмарин', price: 650, diameter: 14, height: 30 },
-    { id: 91, name: 'Самшит', price: 3500, diameter: 29, height: 40 },
-    { id: 92, name: 'Самшит', price: 13000, diameter: 40 },
+    { id: 91, name: 'Самшит', price: 3500, diameter: 29, height: 40, pics: [ pic91_1, pic91_2 ] },
+    { id: 92, name: 'Самшит', price: 13000, diameter: 40, pics: [ pic92_1 ] },
     { id: 93, name: 'Седум', price: 390, diameter: 10, height: 20 },
     { id: 94, name: 'Седум', price: 290, diameter: 12, height: 20 },
     { id: 95, name: 'Седум', price: 500, diameter: 13, height: 20 },
@@ -143,8 +156,8 @@ const items = [
     { id: 115, name: 'Хкебе', price: 710, diameter: 12, height: 30 },
     { id: 116, name: 'Хризантема', price: 590, diameter: 15, height: 35 },
     { id: 117, name: 'Хризантема трикси', price: 1500, diameter: 23, height: 'кашпо' },
-    { id: 118, name: 'Шалфей', price: 390, diameter: 13, height: 30 },
-    { id: 119, name: 'Шалфей', price: 890, diameter: 17, height: 40 },
+    { id: 118, name: 'Шалфей', price: 390, diameter: 13, height: 30, pics: [ pic118_1 ] },
+    { id: 119, name: 'Шалфей', price: 890, diameter: 17, height: 40, pics: [ pic118_1 ] },
     { id: 120, name: 'Эхиноцея микс', price: 1550, diameter: 19, height: 45 }
 
   ]
