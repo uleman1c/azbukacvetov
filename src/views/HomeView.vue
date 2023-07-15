@@ -19,14 +19,19 @@
         <div class="items">
 
           <div v-for="item in items" class="item">
-            <div
-              class="item__img"
-              v-bind:style="'--img: url(' + (item.pics && item.pics.length > 0 ? item.pics[0] : '') + ')'"
+            <div v-if="!item.price" >
+              {{ item.name }}
+            </div>
+            <div v-else>
+              <div
+                class="item__img"
+                v-bind:style="'--img: url(' + (item.pics && item.pics.length > 0 ? item.pics[0] : '') + ')'"
 
-            ></div>
-            <div class="item__content">
-              <div class="item__title">{{ item.name }}</div>
-              <div class="item__desc">{{ item.price ? item.price.toLocaleString('ru', { minimumFractionDigits: 2 }) : '' }}</div>
+              ></div>
+              <div class="item__content">
+                <div class="item__title">{{ item.name }}</div>
+                <div class="item__desc">{{ item.price ? item.price.toLocaleString('ru', { minimumFractionDigits: 2 }) : '' }}</div>
+              </div>
             </div>
           </div>
           
@@ -152,9 +157,8 @@ export default {
   height: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr;
-  grid-auto-rows: 50px;
   gap: 10px;
 }
 
@@ -167,16 +171,24 @@ export default {
   grid-column: span 2;
 }
 
+.menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  grid-column: span 2;
+}
 .items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   gap: 10px;
 }
 .item {
   display: grid;
   background: var(--primary);
   color: var(--invert_primary);
-  border-radius: var(--radius);
+  border-radius: 5px;
   overflow: hidden;
   padding: 5px 5px 15px;
 }
@@ -184,15 +196,15 @@ export default {
 .item__img {
   height: 240px;
   margin-bottom: 10px;
-  border-radius: var(--radius);
-  background: #333 var(--img) center / cover;
+  border-radius: 5px;
+  background: #887979 var(--img) center / cover;
 }
 .item__content {
   padding: 0 10px;
   text-align: left;
 }
 .item__title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
   color: var(--invert_primary);
