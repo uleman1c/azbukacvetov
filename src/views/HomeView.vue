@@ -22,7 +22,7 @@
             <div v-if="!item.price" >
               {{ item.name }}
             </div>
-            <div v-else>
+            <div v-else style="position: relative;">
               <div
                 class="item__img"
                 v-bind:style="'--img: url(' + (item.pics && item.pics.length > 0 ? item.pics[0] : '') + ')'"
@@ -30,8 +30,14 @@
               ></div>
               <div class="item__content">
                 <div class="item__title">{{ item.name }}</div>
-                <div class="item__desc">{{ item.price ? item.price.toLocaleString('ru', { minimumFractionDigits: 2 }) : '' }}</div>
+                <div v-if="item.diameter" style="font-size: 10pt;">диаметр: {{ item.diameter }} см, высота: {{ item.height }} см</div>
+                <div class="item__desc" style="position: relative; left: 50%; transform: translate(-50%, 0px);     width: fit-content; margin-top: 10px; font-size: 20px; color: #f13a5f;">
+                  {{ item.price ? item.price.toLocaleString('ru', { minimumFractionDigits: 0 }) + 'р.' : '' }}</div>
               </div>
+              <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 13pt; 
+                  color: #fff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;">Купить</button>
+              <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
+                  color: #f13a5f; background-color: #fff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;">Купить в 1 клик</button>
             </div>
           </div>
           
