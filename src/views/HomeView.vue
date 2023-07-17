@@ -2,7 +2,7 @@
 <template>
     
     <div v-bind:style="{ backgroundImage: 'url(' + back + ')' }" 
-      style="z-index: 0; position: absolute; left: 0; top: 0; background-repeat: no-repeat;width: 100%;height: 100%;background-size: cover;">
+      style="z-index: 0; position: fixed; left: 0; top: 0; background-repeat: no-repeat;width: 100%;height: 100%;background-size: cover;">
     </div>
 
     <div style="position: relative">
@@ -34,10 +34,13 @@
                 <div class="item__desc" style="position: relative; left: 50%; transform: translate(-50%, 0px);     width: fit-content; margin-top: 10px; font-size: 20px; color: #f13a5f;">
                   {{ item.price ? item.price.toLocaleString('ru', { minimumFractionDigits: 0 }) + 'р.' : '' }}</div>
               </div>
-              <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 13pt; 
-                  color: #fff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;">Купить</button>
+              <div>
+                <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 13pt; 
+                    color: #ffffff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;">Купить</button>
+
+              </div>
               <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
-                  color: #f13a5f; background-color: #fff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;">Купить в 1 клик</button>
+                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;">Купить в 1 клик</button>
             </div>
           </div>
           
@@ -81,6 +84,7 @@ import back from '../assets/back.jpg'
 import List from '@/components/list/List.vue';
 
 import tables from '@/tables.js'
+
 
 export default {
 
@@ -219,6 +223,31 @@ export default {
   font-weight: 300;
 }
 
+@media (max-width: 480px) {
+  .adaptive {
+    width: 100%;
+    grid-template-rows: 50px 1fr auto;
+    gap: 0;
+  }
+  .items {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+.item {
+  width: 45%;
+}
+
+  .item__desc {
+    font-size: 14px;
+  }
+  .item__img {
+    height: 35vw;
+  }
+}
 
 
 </style>
