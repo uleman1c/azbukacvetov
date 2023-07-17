@@ -39,7 +39,7 @@
                     color: #ffffff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;">Купить</button>
 
               </div>
-              <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
+              <button class="btn1clk" style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
                   color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;">Купить в 1 клик</button>
             </div>
           </div>
@@ -246,6 +246,10 @@ export default {
   }
   .item__img {
     height: 35vw;
+  }
+
+  .btn1clk {
+    font-size: 9pt;
   }
 }
 
