@@ -77,7 +77,7 @@
 
 
 
-    <List 
+    <List v-if="false" 
                     v-bind:fields="fields" 
                     v-bind:items="items" 
                     v-on:on-click-item="onClickItem"
