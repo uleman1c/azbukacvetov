@@ -8,7 +8,31 @@
     <div style="position: relative">
       <div class="adaptive">
 
+        <div>
+          <h1 style="position: relative; text-align: center; margin: 0; background-color: #b1a0c7;">Прайс-лист</h1>
+          <h4 style="position: relative; text-align: center; margin: 0; background-color: #ccc0da; font-style: italic;">Цены указаны на 04.07.23</h4>
+
+        </div>
+
         <div class="header">
+
+            <img style="height: 96px;" src="../assets/pics/logo.jpg" >
+
+            <div>
+
+              <h1 style="position: relative; text-align: center; margin: 0;">Азбука цветов</h1>
+              <h2 class="address" style="position: relative; text-align: center; margin: 0;">Пулковское шоссе, 120 Санкт-Петербург</h2>
+            </div>
+
+
+            <div class="contacts">
+              <h2 style="position: relative; text-align: center; margin: 0;">Контакты: +79052700065, +79817338935</h2>
+              <h2 style="position: relative; text-align: center; margin: 0;">E-mail: anastasiy.azbuka@icloud.com</h2>
+              <h2 style="position: relative; text-align: center; margin: 0;">WhatsApp: <a href="https://wa.me/+79052700065">+79052700065</a></h2>
+    
+          </div>
+
+          <img alt="Vue logo" class="cart" src="@/assets/cart.svg" width="64" height="64" />
 
         </div>
 
@@ -51,14 +75,7 @@
 
     </div>
 
-    <h2 style="position: relative; text-align: center; margin: 0;">Контакты +79052700065, +79817338935</h2>
-    <h2 style="position: relative; text-align: center; margin: 0;">Электронная почта anastasiy.azbuka@icloud.com</h2>
-    <h2 style="position: relative; text-align: center; margin: 0;">Адрес Пулковское шоссе, 120 Санкт-Петербург</h2>
-    <h2 style="position: relative; text-align: center; margin: 0;">WhatsApp <a href="https://wa.me/+79052700065">+79052700065</a></h2>
-    
 
-    <h1 style="position: relative; text-align: center; margin: 0; background-color: #b1a0c7;">Прайс-лист</h1>
-    <h4 style="position: relative; text-align: center; margin: 0; background-color: #ccc0da; font-style: italic;">Цены указаны на 04.07.23</h4>
 
     <List 
                     v-bind:fields="fields" 
@@ -74,6 +91,7 @@
 <script setup>
 
 import back from '../assets/back.jpg'
+import logo from '../assets/pics/logo.jpg'
 
 
 
@@ -168,7 +186,7 @@ export default {
   margin: auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 1fr;
   gap: 10px;
 }
 
@@ -223,6 +241,18 @@ export default {
   font-weight: 300;
 }
 
+@media (max-width: 768px) {
+  .contacts {
+  display: none;
+}
+
+.address {
+  display: none;
+}
+
+
+}
+
 @media (max-width: 480px) {
   .adaptive {
     width: 100%;
@@ -251,6 +281,16 @@ export default {
   .btn1clk {
     font-size: 9pt;
   }
+
+.contacts {
+  display: none;
+}
+
+.address {
+  display: none;
+}
+
+
 }
 
 
