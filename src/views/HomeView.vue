@@ -24,15 +24,22 @@
               <h2 class="address" style="position: relative; text-align: center; margin: 0;">Пулковское шоссе, 120 Санкт-Петербург</h2>
             </div>
 
+            <div class="phone">
+              <a href="tel:+79052700065">
+                <img alt="cart" class="cart" src="@/assets/phone.svg" width="48" height="48" />
+              </a>
+            </div>
 
             <div class="contacts">
-              <h2 style="position: relative; text-align: center; margin: 0;">Контакты: +79052700065, +79817338935</h2>
+              <h2 style="position: relative; text-align: center; margin: 0;">Контакты: 
+                <a href="tel:+79052700065">+79052700065</a>, 
+                <a href="tel:+79817338935">+79817338935</a></h2>
               <h2 style="position: relative; text-align: center; margin: 0;">E-mail: anastasiy.azbuka@icloud.com</h2>
               <h2 style="position: relative; text-align: center; margin: 0;">WhatsApp: <a href="https://wa.me/+79052700065">+79052700065</a></h2>
     
           </div>
 
-          <img alt="Vue logo" class="cart" src="@/assets/cart.svg" width="64" height="64" />
+          <img alt="cart" class="cart" src="@/assets/cart.svg" width="64" height="64" />
 
         </div>
 
@@ -199,6 +206,10 @@ export default {
   grid-column: span 2;
 }
 
+.phone {
+  display: none;
+}
+
 .menu {
   display: flex;
   gap: 15px;
@@ -250,6 +261,9 @@ export default {
   display: none;
 }
 
+.phone {
+  display: block;
+}
 
 }
 
@@ -288,6 +302,10 @@ export default {
 
 .address {
   display: none;
+}
+
+.phone {
+  display: block;
 }
 
 
