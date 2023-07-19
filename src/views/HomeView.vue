@@ -90,7 +90,7 @@
 
     </div>
 
-    <div style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0px); width: 50%;
+    <div class="buyOneClickDialog" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0px); 
       background-color: white; border: 2px solid; padding: 10px;" 
       v-bind:hidden="buyOneClickSettings.hidden">
       <h1>Купить</h1>
@@ -323,6 +323,12 @@ export default {
   font-weight: 300;
 }
 
+.buyOneClickDialog {
+
+width: 50%;
+
+}
+
 @media (max-width: 768px) {
   .contacts {
   display: none;
@@ -335,6 +341,13 @@ export default {
 .phone {
   display: block;
 }
+
+.buyOneClickDialog {
+
+width: 75%;
+
+}
+
 
 }
 
@@ -379,6 +392,11 @@ export default {
   display: block;
 }
 
+.buyOneClickDialog {
+
+  width: 90%;
+
+}
 
 }
 
