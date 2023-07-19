@@ -39,7 +39,11 @@
     
           </div>
 
-          <img alt="cart" class="cart" src="@/assets/cart.svg" width="64" height="64" />
+          <div style="position: relative;">
+            <img alt="cart" class="cart" src="@/assets/cart.svg" width="64" height="64" />
+            <h5 v-if="azSettings.cart.length" style="position: absolute; top: -20%; right: 0; background-color: red;  border-radius: 50%;  padding: 10% 12%;"
+              >{{ azSettings.cart.length }}</h5>
+          </div>
 
         </div>
 
@@ -67,11 +71,15 @@
               </div>
               <div>
                 <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 13pt; 
-                    color: #ffffff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;">Купить</button>
+                    color: #ffffff; background-color: #f13a5f; border: none;   border-radius: 5px; cursor: pointer; width: 170px;"
+                    v-on:click="addToCart(item)"
+                    >Купить</button>
 
               </div>
               <button class="btn1clk" style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
-                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;">Купить в 1 клик</button>
+                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;"
+                    v-on:click="buyOneClick(item)"
+                  >Купить в 1 клик</button>
             </div>
           </div>
           
@@ -82,7 +90,23 @@
 
     </div>
 
-
+    <div style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0px); width: 50%;
+      background-color: white; border: 2px solid; padding: 10px;" 
+      v-bind:hidden="buyOneClickSettings.hidden">
+      <h1>Купить</h1>
+      <h2>{{ buyOneClickSettings.item.name }}</h2>
+      <div v-if="buyOneClickSettings.item.diameter" style="font-size: 10pt;">диаметр: {{ buyOneClickSettings.item.diameter }} см, высота: {{ buyOneClickSettings.item.height }} см</div>
+      <div>{{ buyOneClickSettings.item.price ? buyOneClickSettings.item.price.toLocaleString('ru', { minimumFractionDigits: 0 }) + 'р.' : '' }}</div>
+      <div>
+        <input type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Имя">
+      </div>
+      <div>
+        <input type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Телефон">
+      </div>
+        <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
+                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;"
+                  >Заказать</button>
+    </div>
 
     <List v-if="false" 
                     v-bind:fields="fields" 
@@ -97,10 +121,12 @@
 
 <script setup>
 
+// url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9Jy01IC01IDUwIDUwJz48cGF0aCBzdHlsZT0nc3Ryb2tlOiAjZmZmOyBmaWxsOiB0cmFuc3BhcmVudDsgc3Ryb2tlLXdpZHRoOiA1OycgZD0nTSAxMCwxMCBMIDMwLDMwIE0gMzAsMTAgTCAxMCwzMCc+PC9wYXRoPjwvc3ZnPg==)
+
 import back from '../assets/back.jpg'
 import logo from '../assets/pics/logo.jpg'
 
-
+import { v4 as uuid } from 'uuid'
 
 </script>
 
@@ -144,13 +170,30 @@ export default {
 
 
 
-      items: tables.items
+      items: tables.items,
+
+      azSettings: { user: {}, cart: [] },
+
+      buyOneClickSettings: { hidden: true, item: {},  }
 
     }
 
   },
 
   mounted() {
+
+    const azs = localStorage.getItem('azSettings') || '{}'
+    this.azSettings = JSON.parse(azs)
+
+    if (!this.azSettings.user) {
+
+      this.azSettings.user = { id: uuid(), name: '', phone: '' }
+
+      localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+      
+    }
+
+    this.azSettings.cart = this.azSettings.cart || []
 
     document.title = 'Азбука цветов'
 
@@ -168,6 +211,34 @@ export default {
   },
 
   methods: {
+
+    buyOneClick(item){
+
+      this.buyOneClickSettings.item = item
+      this.buyOneClickSettings.hidden = false
+
+    },
+
+    addToCart(item){
+
+      const foundItem = this.azSettings.cart.filter(ci => ci.id == item.id)
+
+      if (foundItem.length) {
+        
+        foundItem[0].quantity = foundItem[0].quantity + 1
+
+      } else {
+        
+        this.azSettings.cart.push(item)
+        this.azSettings.cart[this.azSettings.cart.length - 1].quantity = 1
+
+      }
+
+      localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+
+      console.log(this.azSettings.cart)
+
+    },
 
     onDblClickItem(item){
 
