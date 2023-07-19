@@ -93,18 +93,21 @@
     <div class="buyOneClickDialog" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0px); 
       background-color: white; border: 2px solid; padding: 10px;" 
       v-bind:hidden="buyOneClickSettings.hidden">
+      <button v-on:click="buyOneClickSettings.hidden = true" style="position: absolute; top: -5px; right: -5px;">X</button>
       <h1>Купить</h1>
       <h2>{{ buyOneClickSettings.item.name }}</h2>
       <div v-if="buyOneClickSettings.item.diameter" style="font-size: 10pt;">диаметр: {{ buyOneClickSettings.item.diameter }} см, высота: {{ buyOneClickSettings.item.height }} см</div>
       <div>{{ buyOneClickSettings.item.price ? buyOneClickSettings.item.price.toLocaleString('ru', { minimumFractionDigits: 0 }) + 'р.' : '' }}</div>
       <div>
-        <input type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Имя">
+        <input v-model="buyOneClickSettings.name" type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Имя">
       </div>
       <div>
-        <input type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Телефон">
+        <input v-model="buyOneClickSettings.phone"  type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Телефон">
+        <div v-if="buyOneClickSettings.wrongPhone" style="color: red;">Неправильный номер телефона</div>
       </div>
         <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
                   color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;"
+                  v-on:click="orderOneClick()"
                   >Заказать</button>
     </div>
 
@@ -174,7 +177,7 @@ export default {
 
       azSettings: { user: {}, cart: [] },
 
-      buyOneClickSettings: { hidden: true, item: {},  }
+      buyOneClickSettings: { hidden: true, item: {}, name: '', phone: '', wrongPhone: false  }
 
     }
 
@@ -212,9 +215,36 @@ export default {
 
   methods: {
 
+    orderOneClick(){
+
+      let curPhone  = this.buyOneClickSettings.phone.replace(/\D/g, "").substr(-10)
+
+      if (curPhone.length===10) {
+        
+        this.azSettings.user.name = this.buyOneClickSettings.name
+        this.azSettings.user.phone = this.buyOneClickSettings.phone
+
+        localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+
+        this.buyOneClickSettings.hidden = true
+
+        console.log(this.azSettings)
+
+      } else {
+
+        this.buyOneClickSettings.wrongPhone = true
+
+      }
+
+
+    },
+
     buyOneClick(item){
 
       this.buyOneClickSettings.item = item
+      this.buyOneClickSettings.name = this.azSettings.user.name
+      this.buyOneClickSettings.phone = this.azSettings.user.phone
+
       this.buyOneClickSettings.hidden = false
 
     },
