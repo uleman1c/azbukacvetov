@@ -39,7 +39,7 @@
     
           </div>
 
-          <div style="position: relative;">
+          <div v-on:click="onBasketClick()" style="position: relative;">
             <img alt="cart" class="cart" src="@/assets/cart.svg" width="64" height="64" />
             <h5 v-if="azSettings.cart.length" style="position: absolute; top: -20%; right: 0; background-color: red;  border-radius: 50%;  padding: 10% 12%;"
               >{{ azSettings.cart.length }}</h5>
@@ -111,6 +111,11 @@
                   >Заказать</button>
     </div>
 
+    <BasketView
+      v-bind:hidden="basket.hidden"
+      v-bind:items="basket.items"
+    />
+
     <List v-if="false" 
                     v-bind:fields="fields" 
                     v-bind:items="items" 
@@ -131,6 +136,9 @@ import logo from '../assets/pics/logo.jpg'
 
 import { v4 as uuid } from 'uuid'
 
+import BasketView from './BasketView.vue';
+
+
 </script>
 
 <script>
@@ -142,7 +150,7 @@ import tables from '@/tables.js'
 
 export default {
 
-  components: { List },
+  components: { List, BasketView },
 
   data(){
 
@@ -177,7 +185,9 @@ export default {
 
       azSettings: { user: {}, cart: [] },
 
-      buyOneClickSettings: { hidden: true, item: {}, name: '', phone: '', wrongPhone: false  }
+      buyOneClickSettings: { hidden: true, item: {}, name: '', phone: '', wrongPhone: false  },
+
+      basket: { hidden: true, items: [] }
 
     }
 
@@ -214,6 +224,13 @@ export default {
   },
 
   methods: {
+
+    onBasketClick(){
+
+      this.basket.items = this.azSettings.cart
+      this.basket.hidden = false
+
+    },
 
     orderOneClick(){
 
@@ -360,6 +377,9 @@ width: 50%;
 }
 
 @media (max-width: 768px) {
+  .adaptive {
+    gap: 0px;
+  }
   .contacts {
   display: none;
 }
