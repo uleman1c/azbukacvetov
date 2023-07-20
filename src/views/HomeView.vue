@@ -230,6 +230,8 @@ export default {
 
       this.azSettings.cart = this.azSettings.cart.filter(c => c.id != item.id)
 
+      localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+
       this.onBasketClick()
 
     },
