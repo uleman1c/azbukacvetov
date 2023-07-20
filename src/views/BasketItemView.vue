@@ -11,7 +11,7 @@
         <div class="basket-window__quantity">Количество: 1шт.</div>
         <div class="basket-window__price">2 940р.</div>
         </div>
-        <button class="button" type="button" onclick="bx_basketpCwjw4.removeItemFromCart(531189)" title="Удалить">
+        <button class="button" type="button" v-on:click="$emit('remove-item', item)" title="Удалить">
             <img src="../assets/close.webp" class="image" draggable="false">
         </button>
 
@@ -25,6 +25,16 @@ export default {
 
     props: {
         item: { type: Object }
+    },
+
+    methods: {
+
+        removeItem(item){
+
+
+
+        },
+
     }
 
 }

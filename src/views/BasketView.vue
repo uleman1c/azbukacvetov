@@ -3,7 +3,8 @@
     <div v-bind:hidden="hidden" class="basket-window" style="right: 15px; top: 150px;">
     
         <BasketItemView v-for="item in items"
-            v-bind:item="item"/>
+            v-bind:item="item"
+            v-on:remove-item="removeItem"/>
 
         <div class="basket-window__footer">
             <button onclick="location.href='/basket/'" class="button-text basket-window__button" type="button">Оформить заказ</button>
@@ -22,7 +23,17 @@ export default {
         hidden: { type: Boolean },
         items: { type: Array }
     },
-    components: { BasketItemView }
+    components: { BasketItemView },
+
+    methods: {
+
+        removeItem(item){
+
+            this.$emit('remove-item-from-basket', item)
+        }
+
+
+    }
 }
 
 </script>

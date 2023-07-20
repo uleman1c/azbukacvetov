@@ -114,6 +114,7 @@
     <BasketView
       v-bind:hidden="basket.hidden"
       v-bind:items="basket.items"
+      v-on:remove-item-from-basket="removeItemFromBasket"
     />
 
     <List v-if="false" 
@@ -224,6 +225,14 @@ export default {
   },
 
   methods: {
+
+    removeItemFromBasket(item){
+
+      this.azSettings.cart = this.azSettings.cart.filter(c => c.id != item.id)
+
+      this.onBasketClick()
+
+    },
 
     onBasketClick(){
 
