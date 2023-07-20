@@ -8,8 +8,9 @@
         </a>
         <div class="basket-window__text" style="width: 200px;">
         <div class="basket-window__name">{{ item.name }}</div>
-        <div class="basket-window__quantity">Количество: 1шт.</div>
-        <div class="basket-window__price">2 940р.</div>
+        <div v-if="item.diameter || item.height" class="basket-window__quantity" style="font-size: 13px;">{{ item.diameter ? ' диаметр ' + item.diameter + ' см' : '' }}{{ item.height ? ' высота ' + item.height + ' см' : '' }}</div>
+        <div class="basket-window__quantity">Количество: {{ item.quantity }}шт.</div>
+        <div class="basket-window__price">{{ item.price }} руб.</div>
         </div>
         <button class="button" type="button" v-on:click="$emit('remove-item', item)" title="Удалить">
             <img src="../assets/close.webp" class="image" draggable="false">
@@ -59,5 +60,16 @@ export default {
     cursor: pointer;
     outline: none;
 }
+
+.basket-window__price {
+    margin-top: 10px;
+    font-size: 11pt;
+    color: #f13a5f;
+}
+
+.basket-window__quantity {
+    margin-top: 5px;
+}
+
 </style>
 
