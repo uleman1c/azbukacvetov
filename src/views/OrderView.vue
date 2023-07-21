@@ -56,36 +56,10 @@
                 </div>
 
 
-                <div class="basket-goods__good row">
-                    <div class="basket-goods__cell basket-goods__description col-12 col-md-5 col-xl-4" style="    width: 42%;   padding: 15px 15px;">
-                        <div class="basket-goods__index">1.</div>
-                        <img src="/upload/resize_cache/iblock/72e/k5lmfl2770wiqtu6ulmdncko8jd5co79/115_115_1/DSC_2540.jpg" alt="Букет из 5 ароматных лилий" class="image basket-goods__image" draggable="false">
-                        <div class="basket-goods__text">
-                            <h3 class="basket-goods__string title basket-goods__title">Букет из 5 ароматных лилий</h3>
-
-                        </div>
-                    </div>
-                    <div class="basket-goods__cell basket-goods__prices col-md-2 d-none d-md-flex" style="width: 17%;">
-                        <div class="basket-goods__good-price d-none d-md-flex">
-                        3 070р. </div>
-                    </div>
-                    <div class="basket-goods__cell basket-goods__good-quantity col-4 col-md-2">
-                        <button class="button basket-goods__button minusBbtn" type="button">
-                        <img src="../assets/minus-small.webp" class="icon" draggable="false">
-                        </button>
-                        <input type="text" id="QUANTITY_INPUT_531190" name="QUANTITY_531190" value="1" data-min="1" class="input basket-goods__input">
-                        <button class="button basket-goods__button plusBbtn" type="button">
-                        <img src="../assets/plus-small.webp" class="icon" draggable="false">
-                        </button>
-                    </div>
-                    <div class="basket-goods__cell basket-goods__good-total col-5 col-md-2" style="    width: 15%;   padding: 15px 15px;">3 070р.</div>
-                    <div class="basket-goods__cell col-1 offset-md-0 offset-xl-1">
-                        <button data-href="/ajax/requestUpdateBasket.php?basketAction=delete&amp;id=531190" class="button basket-goods__button-close cartItemDelete" type="button">
-                            <img src="../assets/close.webp" class="icon" draggable="false">
-                        </button>
-                    </div>
-                </div>
-
+                <OrderItemView v-for="item, index in items"
+                    v-bind:index="index" 
+                    v-bind:item="item" 
+                />
 
 
 
@@ -101,17 +75,58 @@
 
 <script>
 
-export default {
+import OrderItemView from './OrderItemView.vue';
 
+
+
+export default {
     props: {
-        items: { type: Array }
+        
+    },
+    components: { OrderItemView },
+
+    data(){
+
+        return {
+
+            items: []
+
+        }
+
+    },
+
+    mounted(){
+
+        const azs = localStorage.getItem('azSettings') || '{}'
+        this.azSettings = JSON.parse(azs)
+
+        if (!this.azSettings.user) {
+
+            this.azSettings.user = { id: uuid(), name: '', phone: '' }
+
+            localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+        
+        }
+
+        this.azSettings.cart = this.azSettings.cart || []
+
+        document.title = 'Оформление заказа'
+
+        
+
+        this.items = this.azSettings.cart
+
+    },
+
+    methods: {
+
     }
 
 }
 
 </script>
 
-<style scoped>
+<style>
 
 .basket-goods__header {
     padding-bottom: 30px;
@@ -125,7 +140,6 @@ export default {
 
 .basket-goods__cell {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -142,11 +156,6 @@ export default {
 
 .basket-goods__description {
     justify-content: flex-start;
-}
-.basket-goods__cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .basket-goods__image {
@@ -197,11 +206,6 @@ export default {
     font-family: exo2 bold;
     font-size: 12pt;
     color: #f13a5f;
-}
-.basket-goods__cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 
