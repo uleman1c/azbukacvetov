@@ -314,7 +314,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
 .adaptive {
   width: 100%;

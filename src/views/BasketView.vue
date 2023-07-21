@@ -7,7 +7,7 @@
             v-on:remove-item="removeItem"/>
 
         <div class="basket-window__footer">
-            <button onclick="location.href='/basket/'" class="button-text basket-window__button" type="button">Оформить заказ</button>
+            <button onclick="location.href='/order'" class="button-text basket-window__button" type="button">Оформить заказ</button>
         </div>        
 
     </div>
