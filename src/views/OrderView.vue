@@ -58,7 +58,9 @@
 
                 <OrderItemView v-for="item, index in items"
                     v-bind:index="index" 
-                    v-bind:item="item" 
+                    v-bind:item="item"
+                    v-on:change-quantity="onChangeQuantity"
+                    v-on:del-item="delItem" 
                 />
 
 
@@ -119,6 +121,29 @@ export default {
     },
 
     methods: {
+
+        delItem(item){
+
+            this.azSettings.cart = this.azSettings.cart.filter(c => c.id != item.id)
+
+            localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+        
+            this.items = this.azSettings.cart
+
+        },
+
+        onChangeQuantity(item, delta){
+
+            item.quantity = item.quantity + delta
+
+            if (item.quantity == 0) {
+                item.quantity = 1
+            }
+
+            localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+
+
+        }
 
     }
 

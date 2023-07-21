@@ -11,20 +11,21 @@
     </div>
     <div class="basket-goods__cell basket-goods__prices col-md-2 d-none d-md-flex" style="width: 17%; flex-direction: row;">
         <div class="basket-goods__good-price d-none d-md-flex">
-        3 070р. </div>
+            {{ item.price.toLocaleString('ru', { minimumFractionDigits: 0 }) }}р. </div>
     </div>
     <div class="basket-goods__cell basket-goods__good-quantity col-4 col-md-2">
-        <button class="button basket-goods__button minusBbtn" type="button">
-        <img src="../assets/minus-small.webp" class="icon" draggable="false">
+        <button class="button basket-goods__button minusBbtn" type="button"  v-on:click="$emit('change-quantity', item, -1)">
+            <img src="../assets/minus-small.webp" class="icon" draggable="false">
         </button>
-        <input type="text" id="QUANTITY_INPUT_531190" name="QUANTITY_531190" value="1" data-min="1" class="input basket-goods__input">
-        <button class="button basket-goods__button plusBbtn" type="button">
-        <img src="../assets/plus-small.webp" class="icon" draggable="false">
+        <input type="text" id="QUANTITY_INPUT_531190" name="QUANTITY_531190" v-model="item.quantity" data-min="1" class="input basket-goods__input">
+        <button class="button basket-goods__button plusBbtn" type="button" v-on:click="$emit('change-quantity', item, 1)">
+            <img src="../assets/plus-small.webp" class="icon" draggable="false">
         </button>
     </div>
-    <div class="basket-goods__cell basket-goods__good-total col-5 col-md-2" style="    width: 15%;   padding: 15px 15px; ">3 070р.</div>
+    <div class="basket-goods__cell basket-goods__good-total col-5 col-md-2" style="    width: 15%;   padding: 15px 15px; ">
+        {{ (item.price * item.quantity).toLocaleString('ru', { minimumFractionDigits: 0 }) }}р.</div>
     <div class="basket-goods__cell col-1 offset-md-0 offset-xl-1">
-        <button data-href="/ajax/requestUpdateBasket.php?basketAction=delete&amp;id=531190" class="button basket-goods__button-close cartItemDelete" type="button">
+        <button class="button basket-goods__button-close cartItemDelete" type="button" v-on:click="$emit('del-item', item)">
             <img src="../assets/close.webp" class="icon" draggable="false">
         </button>
     </div>
