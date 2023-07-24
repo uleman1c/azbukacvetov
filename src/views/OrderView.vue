@@ -44,7 +44,17 @@
 
             </div>
 
-            <div>
+            <div v-if="!items.length && !successDialog.hidden">
+
+                <h1 class="title">Заказ успешно оформлен</h1>
+
+            </div>
+            <div v-if="!items.length && successDialog.hidden">
+
+                <h1 class="title">В корзине нет товаров</h1>
+
+            </div>
+            <div v-if="items.length && successDialog.hidden">
 
                 <h1 class="title">Оформление заказа</h1>
 
@@ -63,23 +73,43 @@
                     v-on:del-item="delItem" 
                 />
 
-
-
-
-
-
+                <div>
+                    <input v-model="name" type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Имя">
+                </div>
+                <div>
+                    <input v-model="phone"  type="text" style="margin-top: 10px; padding: 10px; width: 95%;" placeholder="Телефон">
+                    <div v-if="wrongPhone" style="color: red;">Неправильный номер телефона</div>
+                </div>
+                    <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
+                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;"
+                  v-on:click="order()"
+                  >Заказать</button>
             </div>
 
 
         </div>
     </div>
+
+    <div v-if="false" class="popupDialog" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0px); 
+      background-color: white; border: 2px solid; padding: 10px;" 
+      v-bind:hidden="successDialog.hidden">
+    
+      <button style="position: relative; left: 50%; margin-top: 10px; transform: translate(-50%, 0px);         padding: 15px 30px;   font-size: 11pt; 
+                  color: #f13a5f; background-color: #ffffff; border-color: #f13a5f; border: 1.5px solid;  border-radius: 5px; cursor: pointer;  width: 170px;"
+                  v-on:click="okSuccessDialog()"
+                  >Ок</button>
+
+
+    </div>
+
+
 </template>
 
 <script>
 
 import OrderItemView from './OrderItemView.vue';
 
-
+import datestr from '@/datestr'
 
 export default {
     props: {
@@ -91,7 +121,12 @@ export default {
 
         return {
 
-            items: []
+            items: [],
+
+            name: '', phone: '', wrongPhone: false,
+
+            successDialog: { hidden: true }
+
 
         }
 
@@ -118,9 +153,54 @@ export default {
 
         this.items = this.azSettings.cart
 
+        this.name = this.azSettings.user.name
+        this.phone = this.azSettings.user.phone
+        this.wrongPhone = false
+
+        this.successDialog.hidden = true
+
     },
 
     methods: {
+
+        okSuccessDialog(){
+
+            this.$router.push('/')
+
+        },
+
+        order(){
+
+            let curPhone  = this.phone.replace(/\D/g, "").substr(-10)
+
+            if (curPhone.length===10) {
+                
+                this.azSettings.user.name = this.name
+                this.azSettings.user.phone = this.phone
+
+                const hystory = this.azSettings.hystory || []
+
+                hystory.push( { date: datestr.dateToYMDHMS(new Date()), items: this.items } )
+
+                this.azSettings.hystory = hystory
+                this.azSettings.cart = []
+
+                this.items = []
+
+                localStorage.setItem('azSettings', JSON.stringify(this.azSettings))
+
+                this.successDialog.hidden = false
+
+            } else {
+
+                this.wrongPhone = true
+
+            }
+
+
+        },
+
+
 
         delItem(item){
 
